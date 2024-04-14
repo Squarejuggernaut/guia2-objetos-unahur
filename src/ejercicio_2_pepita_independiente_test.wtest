@@ -1,0 +1,20 @@
+import ejercicio_2_pepita_independiente.*
+
+test "al hacer lo que quiera si pepita esta debil come 20 gramos de alpiste" {
+	pepita.haceLoQueQuieras()
+	assert.equals(80, pepita.energia())
+}
+
+test "al hacer lo que quiera si pepita esta feliz nos dice cuanto quiere volar" {
+	pepita.comer(150)
+	assert.equals(600, pepita.energia())
+	pepita.haceLoQueQuieras()
+	assert.equals(600 / 5 + 15, pepita.cuantoQuiereVolar())
+}
+
+test "al hacer lo que quiera si pepita no esta feliz ni debil no hace nada" {
+	pepita.comer(25)
+	assert.equals(100, pepita.energia())
+	pepita.haceLoQueQuieras()
+	assert.equals(100, pepita.energia())
+}
