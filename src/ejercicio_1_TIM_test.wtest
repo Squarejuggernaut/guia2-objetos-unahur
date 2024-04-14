@@ -1,0 +1,10 @@
+import ejercicio_1_TIM.*
+
+test "La vela comienaza en el estado de apagada" {
+	assert.notThat(vela.encendida())
+}
+
+test "Si cae la pelota se enciende la vela" {
+	pelota.caer()
+	assert.that(vela.encendida())
+}
