@@ -1,0 +1,49 @@
+import ejercicio_3_calculadora_avanzada.*
+
+test "puede guardar un valor en memoria" {
+	calculadora.cargar(5)
+	assert.equals(5, calculadora.valorActual())
+	calculadora.cargarMemoria()
+	assert.equals(5, calculadora.memoria())
+}
+
+test "puede limpiar lo que haya guardado en memoria" {
+	calculadora.cargar(10)
+	calculadora.cargarMemoria()
+	assert.equals(10, calculadora.memoria())
+	calculadora.limpiarMemoria()
+	assert.equals(0, calculadora.memoria())
+}
+
+test "puede sumar lo que haya guardado en memoria a lo que haya como valor actual" {
+	calculadora.cargar(2)
+	calculadora.cargarMemoria()
+	calculadora.cargar(7)
+	calculadora.sumarMemoria()
+	assert.equals(9, calculadora.valorActual())
+}
+
+test "puede restar lo que haya guardado en memoria a lo que haya como valor actual" {
+	calculadora.cargar(3)
+	calculadora.cargarMemoria()
+	calculadora.cargar(1)
+	calculadora.restarMemoria()
+	assert.equals(-2, calculadora.valorActual())
+}
+
+test "puede multiplicar lo que haya guardado en memoria a lo que haya como valor actual" {
+	calculadora.cargar(0)
+	calculadora.cargarMemoria()
+	calculadora.cargar(12345)
+	calculadora.multiplicarMemoria()
+	assert.equals(0, calculadora.valorActual())
+}
+
+test "puede deshacer la ultima operacion hecha restaurando el valor actual previo a la operacion" {
+	calculadora.cargar(2)
+	calculadora.cargarMemoria()
+	calculadora.cargar(3)
+	calculadora.sumarMemoria()
+	calculadora.deshacer()
+	assert.equals(3, calculadora.valorActual())
+}
